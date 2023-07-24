@@ -13,4 +13,17 @@ class GarageController
   {
     return new Response('Title: Garage');
   }
+
+/* To match add variables to our URL*/
+  #[Route('/browse/{slug}')]
+  public function browse(string $slug = null): Response
+  {
+    if ($slug){
+      $title = 'Genre: '.$slug;
+    }else {
+      $title = 'All Genres';
+    }
+
+    return new Response($title);
+  }
 }

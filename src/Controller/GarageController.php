@@ -2,16 +2,19 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class GarageController
+class GarageController extends AbstractController
 {
 
   #[Route('/')]
   public function homepage(): Response
   {
-    return new Response('Title: Garage');
+    return $this->render('garage/homepage.html.twig', [
+      'title' => 'Garage Parrot'
+    ]);
   }
 
 /* To match add variables to our URL*/
